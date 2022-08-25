@@ -9,3 +9,50 @@ $ docker run --rm  -it --shm-size=512m -p 6901:6901 -e VNC_PW=password ghcr.io/g
 ```
 - browse to https://localhost:6901
 - login using "kasm_user:password"
+
+### Features
+- pre installed packages that I most commonly use (autorecon, vscode + plugins, etc...)
+- python virtual environments
+- disable zsh in favor of good ol' bash
+- custom application menu favorites and task manager icons
+
+### Installed packages
+```bash
+# my commonly used packages
+code-oss    # requires additional setup for installing extensions
+git
+keepassxc
+chromium
+firefox-esr
+virtualenv
+bloodhound
+
+# autorecon packages
+seclists
+curl
+enum4linux
+feroxbuster
+impacket-scripts
+nbtscan
+nikto
+nmap
+onesixtyone
+oscanner
+redis-tools
+smbclient
+smbmap
+snmp
+sslscan
+sipvicious
+tnscmd10g
+whatweb
+wkhtmltopdf
+```
+
+### Custom Hooks For
+- python virtualenv's for both python 2 and 3
+  - autorecon (python3)
+  - sshuttle (python3)
+  - impacket (python2/3)
+
+virtual python environments are located in /pyenv/python\* directories
