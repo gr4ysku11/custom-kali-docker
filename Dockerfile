@@ -8,14 +8,36 @@ WORKDIR $HOME
 
 ######### Customize Container Here ###########
 
-# install sudo
+### install sudo ###
 RUN apt-get update \
     && apt-get install -y sudo \
     && echo 'kasm-user ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && rm -rf /var/lib/apt/list/*
+### end sudo install ###
 
-# install chromium
-RUN apt-get install -y chromium
+### install chromium ###
+COPY ./install/chromium $INST_SCRIPTS/chromium/
+RUN bash $INST_SCRIPTS/chromium/install_chromium.sh && rm -rf $INST_SCRIPTS/chromium/
+
+# Update the desktop environment to be optimized for a single application
+RUN cp $HOME/.config/xfce4/xfconf/single-application-xfce-perchannel-xml/* $HOME/.config/xfce4/xfconf/xfce-perchannel-xml/
+RUN cp /usr/share/extra/backgrounds/bg_kasm.png /usr/share/extra/backgrounds/bg_default.png
+RUN apt-get remove -y xfce4-panel
+
+# Setup the custom startup script that will be invoked when the container starts
+#ENV LAUNCH_URL  http://kasmweb.com
+
+COPY ./install/chromium/custom_startup.sh $STARTUPDIR/custom_startup.sh
+RUN chmod +x $STARTUPDIR/custom_startup.sh
+
+# Install Custom Certificate Authority
+# COPY ./src/ubuntu/install/certificates $INST_SCRIPTS/certificates/
+# RUN bash $INST_SCRIPTS/certificates/install_ca_cert.sh && rm -rf $INST_SCRIPTS/certificates/
+
+ENV KASM_RESTRICTED_FILE_CHOOSER=1
+COPY ./src/ubuntu/install/gtk/ $INST_SCRIPTS/gtk/
+RUN bash $INST_SCRIPTS/gtk/install_restricted_file_chooser.sh
+### end chromium install ###
 
 ######### End Customizations ###########
 
