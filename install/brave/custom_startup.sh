@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
-START_COMMAND="chromium-browser"
-PGREP="chromium"
+START_COMMAND="brave-browser"
+PGREP="brave"
 MAXIMIZE="true"
 DEFAULT_ARGS=""
 
