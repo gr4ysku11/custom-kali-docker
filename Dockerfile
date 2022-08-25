@@ -33,6 +33,9 @@ USER root
 COPY ./install/autorecon $INST_SCRIPTS/autorecon/
 RUN bash $INST_SCRIPTS/autorecon/install_autorecon.sh && rm -rf $INST_SCRIPTS/autorecon/
 
+# install keepassxc
+RUN apt-get install -y keepassxc
+
 ######### End Customizations ###########
 
 RUN chown 1000:0 $HOME
