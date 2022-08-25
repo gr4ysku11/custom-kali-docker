@@ -16,8 +16,8 @@ apt install -y  brave-browser
 
 sed -i 's/-stable//g' /usr/share/applications/brave-browser.desktop
 
-cp /usr/share/applications/brave-browser.desktop $HOME/Desktop/
-chown 1000:1000 $HOME/Desktop/brave-browser.desktop
+#cp /usr/share/applications/brave-browser.desktop $HOME/Desktop/
+#chown 1000:1000 $HOME/Desktop/brave-browser.desktop
 
 mv /usr/bin/brave-browser /usr/bin/brave-browser-orig
 cat >/usr/bin/brave-browser <<EOL
