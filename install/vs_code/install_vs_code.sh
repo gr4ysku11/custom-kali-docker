@@ -13,15 +13,10 @@ chmod +x $HOME/Desktop/code.desktop
 chown 1000:1000 $HOME/Desktop/code.desktop
 rm vs_code.deb
 
-# Conveniences for python development
-apt-get update
-apt-get install -y python3-setuptools \
-                   python3-venv \
-                   python3-virtualenv
-
 # Cleanup
 apt-get autoclean
 rm -rf \
     /var/lib/apt/lists/* \
     /var/tmp/* \
     /tmp/*
+

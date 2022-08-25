@@ -22,6 +22,17 @@ RUN bash $INST_SCRIPTS/brave/install_brave.sh  && rm -rf $INST_SCRIPTS/brave/
 COPY ./install/vs_code $INST_SCRIPTS/vs_code/
 RUN bash $INST_SCRIPTS/vs_code/install_vs_code.sh  && rm -rf $INST_SCRIPTS/vs_code/
 
+USER 1000
+# install plugins
+RUN code --install-extension vscodevim.vim && code --install-extension ms-python.python && \
+	code --install-extension dendron.dendron-paste-image
+
+USER root
+
+# install autorecon
+COPY ./install/autorecon $INST_SCRIPTS/autorecon/
+RUN bash $INST_SCRIPTS/autorecon/install_autorecon.sh && rm -rf $INST_SCRIPTS/autorecon/
+
 ######### End Customizations ###########
 
 RUN chown 1000:0 $HOME
