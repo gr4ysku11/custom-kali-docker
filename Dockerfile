@@ -8,17 +8,19 @@ WORKDIR $HOME
 
 ######### Customize Container Here ###########
 
-### install sudo ###
+# install sudo
 RUN apt-get update \
     && apt-get install -y sudo \
     && echo 'kasm-user ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && rm -rf /var/lib/apt/list/*
-### end sudo install ###
 
-### install brave  ###
+# install brave
 COPY ./install/brave $INST_SCRIPTS/brave/
 RUN bash $INST_SCRIPTS/brave/install_brave.sh  && rm -rf $INST_SCRIPTS/brave/
-### end brave install ###
+
+# install vscode
+COPY ./install/vs_code $INST_SCRIPTS/vs_code/
+RUN bash $INST_SCRIPTS/vs_code/install_vs_code.sh  && rm -rf $INST_SCRIPTS/vs_code/
 
 ######### End Customizations ###########
 
