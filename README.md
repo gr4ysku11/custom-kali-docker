@@ -20,8 +20,6 @@ $ docker run --privileged ...
 ### Features
 - pre installed packages that I most commonly use (autorecon, vscode + plugins, etc...)
 - python virtual environments
-- disable zsh in favor of good ol' bash
-- custom application menu favorites and task manager icons
 
 ### Installed packages
 ```bash
