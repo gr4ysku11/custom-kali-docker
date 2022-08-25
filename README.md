@@ -12,6 +12,11 @@ $ docker run --rm  -it --shm-size=512m -p 6901:6901 -e VNC_PW=password ghcr.io/g
 - browse to https://localhost:6901
 - login using "kasm_user:password"
 
+```bash
+# NOTE: if you need to mount local assets within the docker container, add --privileged to the 'docker run' command
+$ docker run --privileged ...
+```
+
 ### Features
 - pre installed packages that I most commonly use (autorecon, vscode + plugins, etc...)
 - python virtual environments
