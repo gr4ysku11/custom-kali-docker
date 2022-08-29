@@ -18,8 +18,11 @@ $ docker run --privileged ...
 ```
 
 ### Features
+- Stream Kali Linux through a browser
+- Proper dynamic resizing and scaling, thanks to kasmvnc
+- Stateless image, giving a clean slate to work in upon every launch (similar to a vm snapshot)
 - pre installed packages that I most commonly use (autorecon, vscode + plugins, etc...)
-- python virtual environments
+- python 2 and 3 virtual environments
 
 ### Installed packages
 ```bash
