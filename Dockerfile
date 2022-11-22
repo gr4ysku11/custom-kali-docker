@@ -34,7 +34,8 @@ COPY ./install/autorecon $INST_SCRIPTS/autorecon/
 RUN bash $INST_SCRIPTS/autorecon/install_autorecon.sh && rm -rf $INST_SCRIPTS/autorecon/
 
 # install keepassxc
-RUN apt-get install -y keepassxc
+COPY ./install/otherpkgs $INST_SCRIPTS/otherpkgs/
+RUN bash $INST_SCRIPTS/otherpkgs/install_otherpkgs.sh && rm -rf $INST_SCRIPTS/otherpkgs/
 
 ######### End Customizations ###########
 
