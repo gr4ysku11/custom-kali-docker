@@ -18,10 +18,11 @@ $ docker run --rm -it --privileged --sysctl net.ipv6.conf.all.disable_ipv6=0 -v 
 ```
 
 ### Features
+- Stream Kali Linux through a browser
+- Proper dynamic resizing and scaling, thanks to kasmvnc
+- Stateless image, giving a clean slate to work in upon every launch (similar to a vm snapshot)
 - pre installed packages that I most commonly use (autorecon, vscode + plugins, etc...)
-- python virtual environments
-- disable zsh in favor of good ol' bash
-- custom application menu favorites and task manager icons
+- python 2 and 3 virtual environments
 
 ### Installed packages
 ```bash
